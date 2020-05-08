@@ -1,5 +1,6 @@
 # Write a class to hold player information, e.g. what room they are in
 # currently.
+from item import Items
 
 
 class Player:
@@ -7,6 +8,7 @@ class Player:
         #super().__init__(room_name)
         self.current_room = current_room
         self.name = name
+        self.inventory = []
        
     def __str__(self):
         return 'current_room: %s' % (self.current_room)
@@ -16,6 +18,17 @@ class Player:
             print("You cannot move in that direction from your current room")
         else:
             self.current_room = room
+
+    def add_item_player(self, item):
+        return self.inventory.append(item)
+
+    def drop_item_player(self, item):
+        return self.inventory.remove(item)
+
+
+    def print_items_player(self):
+        for i in self.inventory:
+            print("Player Items: ", i)
 
 
 
